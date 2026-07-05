@@ -1,0 +1,53 @@
+# .github/workflows/daily-news.yml 경로에 저장
+name: Daily Market Briefing
+
+on:
+  schedule:
+    - cron: "40 21 * * *" # UTC 21:40 = 한국 오전 6:40 (지연 감안, 7시 전후 도착)
+    - cron: "40 7 * * *"  # UTC 07:40 = 한국 오후 4:40 (지연 감안, 5시 전후 도착)
+  workflow_dispatch: # 수동 실행 버튼 (테스트용)
+
+permissions:
+  contents: write # docs/ 커밋을 위해 필요
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests feedparser
+
+      - name: Generate briefing page
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          PAGE_URL: ${{ secrets.PAGE_URL }}
+        run: python daily_news.py generate
+
+      - name: Commit & push page
+        run: |
+          git config user.name "news-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/
+          git commit -m "briefing $(date +'%Y-%m-%d')" || echo "no changes"
+          git push
+
+      - name: Wait for Pages deploy
+        run: sleep 90
+
+      - name: Send KakaoTalk notification
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          PAGE_URL: ${{ secrets.PAGE_URL }}
+        run: python daily_news.py notify
