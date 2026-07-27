@@ -75,9 +75,13 @@ ANALYSIS_PROMPT = """당신은 한국인 개인투자자를 위한 영어 학습
 아래 미국 경제뉴스 목록을 분석해 JSON 배열로만 응답하세요. 마크다운 코드블록 없이 순수 JSON만 출력합니다.
 
 각 뉴스마다 다음 필드를 생성:
-- "english": 영어 원문 요약 2~3문장. 제공된 headline과 summary를 자연스러운 영어 문단으로 정리 (중급 학습자에게 적당한 난이도 유지)
-- "korean": 위 english의 자연스러운 한국어 번역
-- "vocab": 영어 단어 3~4개 [{"word":"...", "meaning":"한국어 뜻"}] (중급 학습자에게 유용한 것 위주)
+- "headline_kr": 뉴스의 핵심을 한 줄로 요약한 한국어 문장 (30자 내외, 명사형 종결. 예: "연준, 9월 금리 인하 가능성 시사")
+- "english": 영어 원문 요약 2~3문장. 제공된 headline과 summary를 자연스러운 영어 문단으로 정리 (초·중급 학습자가 읽을 수 있게 지나치게 어려운 구문은 피하되 원문의 표현은 살릴 것)
+- "korean": 위 english의 자연스러운 한국어 번역. 핵심 문장이 무엇인지 드러나도록 정확하게 번역
+- "vocab": 영어 단어 4~6개 [{"word":"...", "meaning":"한국어 뜻"}]. 규칙:
+  * 기사 이해에 핵심적인 단어 위주 (초급 학습자 기준)
+  * 복합 용어는 반드시 구성 단어별로 분해해 각각 등재. 예: "rate cut"이 나오면 → {"word":"rate","meaning":"금리, 비율"}, {"word":"cut","meaning":"인하, 삭감"} 두 항목으로. "labor force"면 → labor: 노동, force: 힘/인력 으로 분해
+  * 대명사·전치사라도 문장 이해에 중요하면 포함
 - "idioms": 숙어/표현 1~2개 [{"phrase":"...", "meaning":"한국어 뜻"}] (없으면 빈 배열)
 - "impact": {
     "sectors": ["영향 업종 1~3개 (한국어)"],
@@ -146,6 +150,14 @@ header .kicker {{ font-family:'IBM Plex Mono',monospace; font-size:12px;
 header h1 {{ font-size:24px; font-weight:700; margin-top:8px; }}
 header .sub {{ font-size:13px; color:#B8BECB; margin-top:6px; }}
 main {{ max-width:720px; margin:0 auto; padding:28px 16px 60px; }}
+.digest {{ background:#fff; border:1px solid var(--mist); border-left:4px solid var(--dawn);
+  border-radius:10px; padding:18px 20px; margin-bottom:30px; }}
+.digest .label {{ font-family:'IBM Plex Mono',monospace; font-size:11px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--dawn); }}
+.digest ol {{ margin:10px 0 0 2px; padding-left:20px; }}
+.digest li {{ font-size:14.5px; margin:6px 0; }}
+.digest a {{ color:var(--ink); text-decoration:none; }}
+.digest a:hover {{ color:var(--sea); }}
 article {{ background:#fff; border:1px solid var(--mist); border-radius:10px;
   padding:24px 20px 18px; margin-bottom:26px; position:relative; }}
 .num {{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--dawn);
@@ -155,6 +167,10 @@ h2 {{ font-family:'Newsreader',serif; font-size:20px; font-weight:600;
   line-height:1.35; margin:8px 0 12px; }}
 h2 a {{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--mist); }}
 .eng {{ font-family:'Newsreader',serif; font-size:17px; line-height:1.7; }}
+.listen {{ margin-top:10px; font-family:'IBM Plex Sans KR',sans-serif; font-size:12.5px;
+  padding:6px 14px; border-radius:20px; border:1px solid var(--sea);
+  background:#fff; color:var(--sea); cursor:pointer; }}
+.listen.playing {{ background:var(--sea); color:#fff; }}
 .kor {{ background:#F3F5F8; border-left:3px solid var(--sea); border-radius:0 6px 6px 0;
   padding:12px 14px; margin-top:14px; font-size:14.5px; }}
 .kor .label, .impact .label, .note .label {{
@@ -187,17 +203,49 @@ footer {{ text-align:center; font-size:11.5px; color:#9AA0AC; padding:0 20px 40p
   <div class="sub">미국 경제뉴스 Top {count} · 영어 학습 + 종목 파급력 분석</div>
 </header>
 <main>
+<div class="digest">
+  <span class="label">Today's Digest — 오늘의 핵심</span>
+  <ol>
+{digest}
+  </ol>
+</div>
 {articles}
 </main>
 <footer>본 페이지의 종목 분석은 AI가 생성한 참고 자료이며 투자 권유가 아닙니다.<br>
 투자 판단과 책임은 본인에게 있습니다.</footer>
+<script>
+let curBtn = null;
+function resetBtn() {{
+  if (curBtn) {{ curBtn.classList.remove('playing'); curBtn.textContent = '🔊 영어 듣기'; curBtn = null; }}
+}}
+function speak(btn, id) {{
+  const synth = window.speechSynthesis;
+  if (synth.speaking) {{
+    const same = (curBtn === btn);
+    synth.cancel(); resetBtn();
+    if (same) return; // 같은 버튼 다시 누르면 정지
+  }}
+  const u = new SpeechSynthesisUtterance(document.getElementById(id).textContent);
+  u.lang = 'en-US';
+  u.rate = 0.92; // 학습용으로 약간 천천히
+  const voice = synth.getVoices().find(v => v.lang.startsWith('en-US'));
+  if (voice) u.voice = voice;
+  u.onend = resetBtn;
+  u.onerror = resetBtn;
+  synth.speak(u);
+  curBtn = btn; btn.classList.add('playing'); btn.textContent = '⏸ 정지';
+}}
+// 일부 브라우저는 목소리 목록을 늦게 불러옴
+window.speechSynthesis && window.speechSynthesis.getVoices();
+</script>
 </body>
 </html>"""
 
-ARTICLE_TEMPLATE = """<article>
+ARTICLE_TEMPLATE = """<article id="a{num}">
   <span class="num">NO.{num:02d}</span><span class="src">{source}</span>
   <h2><a href="{link}" target="_blank" rel="noopener">{title}</a></h2>
-  <p class="eng">{english}</p>
+  <p class="eng" id="eng-{num}">{english}</p>
+  <button class="listen" onclick="speak(this,'eng-{num}')">🔊 영어 듣기</button>
   <div class="kor"><span class="label">한국어 해석</span>{korean}</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
@@ -235,9 +283,13 @@ def build_html(news: list[dict], analysis: list[dict]) -> str:
             english=esc(a.get("english", "")), korean=esc(a.get("korean", "")),
             chips=chips, reasoning=esc(imp.get("reasoning", "")), vocab_items=vocab,
         ))
+    digest = "\n".join(
+        f'    <li><a href="#a{i}">{esc(a.get("headline_kr") or n["title"])}</a></li>'
+        for i, (n, a) in enumerate(zip(news, analysis), 1)
+    )
     return PAGE_TEMPLATE.format(date_kr=DATE_KR, count=len(news),
                                 edition=EDITION, edition_en=EDITION_EN,
-                                articles="\n".join(articles))
+                                digest=digest, articles="\n".join(articles))
 
 
 # ---------------------------------------------------------------- 카카오 전송
@@ -257,8 +309,12 @@ def get_kakao_access_token() -> str:
 
 def send_kakao(headlines: list[str]) -> None:
     page_url = os.environ["PAGE_URL"]
-    preview = "\n".join(f"· {h[:40]}" for h in headlines[:3])
-    text = f"📰 {DATE_KR} {EDITION} 브리핑 도착\n\n{preview}\n\n외 {max(len(headlines)-3,0)}건 → 학습 페이지에서 확인"
+    preview = "\n".join(f"· {h[:38]}" for h in headlines[:2])
+    text = (
+        f"📰 {DATE_KR} {EDITION} 브리핑 도착\n"
+        f"{preview}\n외 {max(len(headlines)-2,0)}건\n\n"
+        f"👇 전체 브리핑 (오디오 듣기 지원)\n{page_url}"
+    )
     template = {
         "object_type": "text",
         "text": text[:190],
