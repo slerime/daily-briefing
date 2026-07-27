@@ -3,8 +3,8 @@ name: Daily Market Briefing
 
 on:
   schedule:
-    - cron: "40 21 * * *" # UTC 21:40 = 한국 오전 6:40 (지연 감안, 7시 전후 도착)
-    - cron: "40 7 * * *"  # UTC 07:40 = 한국 오후 4:40 (지연 감안, 5시 전후 도착)
+    - cron: "0 21 * * *" # UTC 21:40 = 한국 오전 6:40 (지연 감안, 7시 전후 도착)
+    - cron: "0 8 * * *"  # UTC 07:40 = 한국 오후 4:40 (지연 감안, 5시 전후 도착)
   workflow_dispatch: # 수동 실행 버튼 (테스트용)
 
 permissions:
