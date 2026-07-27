@@ -22,6 +22,14 @@ header .kicker { font-family:'IBM Plex Mono',monospace; font-size:12px;
 header h1 { font-size:24px; font-weight:700; margin-top:8px; }
 header .sub { font-size:13px; color:#B8BECB; margin-top:6px; }
 main { max-width:720px; margin:0 auto; padding:28px 16px 60px; }
+.digest { background:#fff; border:1px solid var(--mist); border-left:4px solid var(--dawn);
+  border-radius:10px; padding:18px 20px; margin-bottom:30px; }
+.digest .label { font-family:'IBM Plex Mono',monospace; font-size:11px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--dawn); }
+.digest ol { margin:10px 0 0 2px; padding-left:20px; }
+.digest li { font-size:14.5px; margin:6px 0; }
+.digest a { color:var(--ink); text-decoration:none; }
+.digest a:hover { color:var(--sea); }
 article { background:#fff; border:1px solid var(--mist); border-radius:10px;
   padding:24px 20px 18px; margin-bottom:26px; position:relative; }
 .num { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--dawn);
@@ -31,6 +39,10 @@ h2 { font-family:'Newsreader',serif; font-size:20px; font-weight:600;
   line-height:1.35; margin:8px 0 12px; }
 h2 a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--mist); }
 .eng { font-family:'Newsreader',serif; font-size:17px; line-height:1.7; }
+.listen { margin-top:10px; font-family:'IBM Plex Sans KR',sans-serif; font-size:12.5px;
+  padding:6px 14px; border-radius:20px; border:1px solid var(--sea);
+  background:#fff; color:var(--sea); cursor:pointer; }
+.listen.playing { background:var(--sea); color:#fff; }
 .kor { background:#F3F5F8; border-left:3px solid var(--sea); border-radius:0 6px 6px 0;
   padding:12px 14px; margin-top:14px; font-size:14.5px; }
 .kor .label, .impact .label, .note .label {
@@ -63,158 +75,208 @@ footer { text-align:center; font-size:11.5px; color:#9AA0AC; padding:0 20px 40px
   <div class="sub">미국 경제뉴스 Top 10 · 영어 학습 + 종목 파급력 분석</div>
 </header>
 <main>
-<article>
+<div class="digest">
+  <span class="label">Today's Digest — 오늘의 핵심</span>
+  <ol>
+    <li><a href="#a1">싱가포르중앙은행, 유가 상승으로 긴축정책 강화</a></li>
+    <li><a href="#a2">트럼프 글로벌 관세, 강제노동 명분에 무역파트너 반발</a></li>
+    <li><a href="#a3">연준 위원 워시, 핵심 표현으로 금리 방향성 시사</a></li>
+    <li><a href="#a4">트럼프, 2028년부터 제네릭 의약품 관세 추진</a></li>
+    <li><a href="#a5">수입물가 예상 외 상승, 중국산 상품 비용 2008년 이후 최고</a></li>
+    <li><a href="#a6">유가 5% 하락, 이란 미국 휴전 지속 시 공격 중단 신호</a></li>
+    <li><a href="#a7">우크라이나, 카스피해 이란 선박 공격·테헤란 강력 항의</a></li>
+    <li><a href="#a8">AI 부의 모든 미국인으로의 분배 방안 논의</a></li>
+    <li><a href="#a9">기술주 약세 속 수익성 있는 테크주 매수 기회</a></li>
+    <li><a href="#a10">기업채 비용 상승, AI 투자 고착화 가능성</a></li>
+  </ol>
+</div>
+<article id="a1">
   <span class="num">NO.01</span><span class="src">CNBC Markets</span>
   <h2><a href="https://www.cnbc.com/2026/07/27/singapore-mas-july-monetary-policy-middle-east-oil-prices-inflation-.html" target="_blank" rel="noopener">Singapore tightens monetary policy as rising oil prices rekindle inflation risk</a></h2>
-  <p class="eng">Singapore&#x27;s central bank is tightening monetary policy in response to rising oil prices that threaten to reignite inflation. Unlike most central banks, the Monetary Authority of Singapore manages price stability by adjusting the Singapore dollar exchange rate against a trade-weighted basket of currencies rather than using traditional interest rate tools.</p>
-  <div class="kor"><span class="label">한국어 해석</span>싱가포르 중앙은행이 인플레이션 위험을 재점화할 수 있는 유가 상승에 대응하여 통화정책을 긴축하고 있습니다. 대부분의 중앙은행과 달리 싱가포르통화청은 전통적인 금리 도구 대신 무역 가중 통화 바스켓 대비 싱가포르 달러 환율을 조정하는 방식으로 물가 안정성을 관리합니다.</div>
+  <p class="eng" id="eng-1">Singapore&#x27;s Monetary Authority is tightening monetary policy as rising oil prices create new inflation risks. Unlike most central banks, the MAS maintains price stability by managing the Singapore dollar&#x27;s exchange rate against a basket of trade-weighted currencies.</p>
+  <button class="listen" onclick="speak(this,'eng-1')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>싱가포르중앙은행(MAS)이 유가 상승으로 인한 인플레이션 위험에 대응해 통화정책을 강화하고 있습니다. 대부분의 중앙은행과 달리 MAS는 무역 가중 통화 바스켓에 대한 싱가포르달러 환율을 관리함으로써 중기 물가 안정성을 유지합니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">에너지</span><span class="chip">금융/은행</span><span class="chip">수출입 관련 산업</span><span class="chip tk">XLE</span><span class="chip tk">DXY</span><span class="chip kr">S-Oil</span><span class="chip kr">SK에너지</span></div>
-    <p>①원인: 유가 상승으로 인한 인플레이션 위험 가중 ②경로: 싱가포르가 환율 긴축으로 대응하면서 싱가포르 달러가 강세를 보이고, 이는 아시아 역내 통화 경쟁력에 영향을 미침. 또한 유가 상승 자체가 에너지 원가를 상승시킴 ③결과: 한국의 에너지·석유화학 업종은 원유 수입비 증가로 악재이나, 정제 마진 확대 가능성도 있으며, 아시아 역내 수출 경쟁력이 약해져 수출 관련 기업들에 영향을 미침</p>
+    <div class="chips"><span class="chip">금융·은행</span><span class="chip">수출입·무역</span><span class="chip">에너지</span></div>
+    <p>싱가포르 중앙은행의 긴축 신호는 동아시아 지역의 통화 경색을 시사합니다(①원인). 환율 관리를 통한 긴축은 싱가포르달러 강세를 유도하고, 이는 수출 경쟁력에 부정적 영향을 미치는 동시에 지역 금융시장의 자금 조달 비용을 상승시킵니다(②경로). 이는 싱가포르의 수출 기업과 금융·해운 부문에 악재로 작용하며, 나아가 역내 무역 네트워크에 연결된 한국 수출업체들의 성장성을 제약할 수 있습니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>tighten monetary policy</b> — 통화정책을 긴축하다</li><li><b>trade-weighted basket</b> — 무역액 가중치를 적용한 바스켓 (통화바스켓)</li><li><b>rekindle</b> — 다시 불을 붙이다, 재점화하다</li><li><b>price stability</b> — 물가 안정성</li></ul>
+    <ul><li><b>tighten</b> — 강화하다, 긴축하다</li><li><b>monetary policy</b> — 통화정책</li><li><b>inflation risk</b> — 인플레이션 위험</li><li><b>exchange rate</b> — 환율</li><li><b>trade-weighted</b> — 무역 가중의</li></ul>
   </div>
 </article>
-<article>
+<article id="a2">
   <span class="num">NO.02</span><span class="src">CNBC Markets</span>
   <h2><a href="https://www.cnbc.com/2026/07/24/trump-global-tariffs-trade-imbalance-forced-labor.html" target="_blank" rel="noopener">Trump&#x27;s new global tariff draws rebukes from trade partners over forced labor justification</a></h2>
-  <p class="eng">U.S. trading partners have rejected Trump&#x27;s justification for new global tariffs based on forced labor concerns, though most countries have indicated they will continue negotiating rather than escalate immediately. The dispute highlights tensions between the U.S. and its major trading partners over the legitimacy of using forced labor as grounds for broad tariff increases.</p>
-  <div class="kor"><span class="label">한국어 해석</span>미국의 주요 무역 파트너들이 강제 노동을 근거로 한 트럼프의 신규 글로벌 관세 정당화를 거부했지만, 대부분의 국가들은 즉시 갈등을 심화하기보다는 협상을 계속하겠다는 의사를 밝혔습니다. 이는 강제 노동을 광범위한 관세 인상의 근거로 삼는 것의 정당성을 둘러싼 미국과 주요 무역 파트너 간의 긴장을 드러냅니다.</div>
+  <p class="eng" id="eng-2">U.S. trading partners have rejected the justification behind Trump&#x27;s new global tariffs, citing forced labor concerns, though most indicated they will continue negotiating. The tariffs have drawn widespread criticism from multiple nations.</p>
+  <button class="listen" onclick="speak(this,'eng-2')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>미국의 무역파트너들이 강제노동을 명분으로 한 트럼프의 새로운 글로벌 관세에 반발하고 있으나, 대부분 협상을 계속 진행할 의향을 보이고 있습니다. 이 관세는 여러 국가로부터 광범위한 비판을 받고 있습니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">수출입 산업</span><span class="chip">제조업</span><span class="chip">소비재</span><span class="chip tk">IYM</span><span class="chip tk">XRT</span><span class="chip kr">삼성전자</span><span class="chip kr">현대자동차</span><span class="chip kr">SK하이닉스</span></div>
-    <p>①원인: 트럼프 행정부가 강제 노동 명목으로 글로벌 관세를 부과하려는 정책 추진 ②경로: 국제 무역 파트너들의 거부로 협상이 길어질 가능성이 높아지며, 한국 포함 주요 수출국들의 미국 수출품(반도체, 자동차 등)에 관세 부과 위협 증가. 불확실성 확대로 기업들의 투자 의욕 위축 ③결과: 글로벌 공급망에 의존한 한국 제조업 및 수출기업들이 단기적 악재로 작용하며, 관세 부과 시 수익성 악화 우려</p>
+    <div class="chips"><span class="chip">무역·관세</span><span class="chip">제조업</span><span class="chip">수출입</span><span class="chip tk">IVV</span><span class="chip tk">SPY</span><span class="chip kr">현대자동차</span><span class="chip kr">삼성전자</span><span class="chip kr">LG전자</span></div>
+    <p>트럼프 정부의 글로벌 관세 도입은 국제 무역 체계의 불확실성을 증대시킵니다(①원인). 관세 인상은 기업의 원재료 조달 비용을 상승시키고, 보복 관세 위험으로 인해 공급망 재편을 강제합니다(②경로). 특히 중국·한국·일본 등 주요 수출국의 제조업체들이 미국 시장 진입 장벽 상승으로 수익성이 악화되며, 한국의 자동차·반도체·가전 등 수출 주력산업이 직접적인 타격을 받게 됩니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>rebuke</b> — 거절하다, 비난하다</li><li><b>forced labor</b> — 강제 노동</li><li><b>escalate</b> — 확대하다, 심화시키다</li><li><b>keep negotiating</b> — 계속 협상하다</li></ul>
+    <ul><li><b>tariff</b> — 관세</li><li><b>forced labor</b> — 강제노동</li><li><b>rebukes</b> — 비난, 꾸짖음</li><li><b>trading partners</b> — 무역파트너</li><li><b>draw rebukes from</b> — ~로부터 비난을 받다</li></ul>
   </div>
 </article>
-<article>
+<article id="a3">
   <span class="num">NO.03</span><span class="src">CNBC Markets</span>
   <h2><a href="https://www.cnbc.com/2026/07/22/kevin-warsh-has-homed-in-on-three-key-phrases-how-fed-watchers-interpret-them.html" target="_blank" rel="noopener">Kevin Warsh has homed in on three key phrases. How Fed watchers interpret them</a></h2>
-  <p class="eng">Federal Reserve candidate Kevin Warsh has repeatedly emphasized three key phrases in his recent public appearances: &quot;family fight,&quot; &quot;first principles,&quot; and &quot;inflation is a choice,&quot; which Fed watchers are now closely analyzing to understand his potential policy direction. These carefully chosen phrases suggest Warsh may view recent inflation as a policy choice rather than an external shock, which could signal a different approach to monetary policy.</p>
-  <div class="kor"><span class="label">한국어 해석</span>연준 후보자 케빈 워시(Kevin Warsh)가 최근 공개 활동에서 &quot;가족 싸움(family fight)&quot;, &quot;기본 원칙(first principles)&quot;, &quot;인플레이션은 선택(inflation is a choice)&quot; 등 세 가지 핵심 표현을 반복적으로 강조했으며, 연준 관계자들이 그의 정책 방향을 파악하기 위해 이를 면밀히 분석하고 있습니다. 이러한 신중하게 선택된 표현들은 워시가 최근의 인플레이션을 외부 충격이 아닌 정책 선택으로 볼 수 있음을 시사하며, 통화정책에 대한 다른 접근 방식을 암시할 수 있습니다.</div>
+  <p class="eng" id="eng-3">Fed official Kevin Warsh has repeatedly used three key phrases in five public appearances: &quot;family fight&quot; 13 times, &quot;first principles&quot; 11 times, and &quot;inflation is a choice&quot; six times. These phrases are being closely analyzed by Fed watchers to interpret the central bank&#x27;s future policy direction.</p>
+  <button class="listen" onclick="speak(this,'eng-3')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>연방준비제도 위원 케빈 워시가 5건의 공개 발언에서 세 가지 핵심 표현을 반복 사용했습니다: &#x27;가족 싸움&#x27; 13회, &#x27;첫 원칙&#x27; 11회, &#x27;인플레이션은 선택&#x27; 6회. 연준 전문가들은 이 표현들을 중앙은행의 향후 정책 방향을 해석하기 위해 긴밀히 분석하고 있습니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">금융/은행</span><span class="chip">채권 시장</span><span class="chip">기술주</span><span class="chip tk">DXY</span><span class="chip tk">TLT</span><span class="chip tk">QQQ</span></div>
-    <p>①원인: 연준 후보자 워시가 인플레이션을 &#x27;정책 선택&#x27;으로 표현하며 기존 연준의 통화정책에 대한 비판적 입장 시사 ②경로: 만약 워시가 연준 지도부에 들어가면 금리 인상 기조가 강화될 수 있으며, 이는 채권 수익률 상승과 달러 강세로 이어짐. 금리 인상 가능성 증가는 고금리에 민감한 기술주와 고성장주에 부담으로 작용 ③결과: 미국 금리 전망 상향으로 달러 강세 심화 시 한국 수출기업의 환율 이득 축소, 미국 주식 시장의 기술주 부문 약세</p>
+    <div class="chips"><span class="chip">금융·은행</span><span class="chip">채권시장</span><span class="chip">주식시장</span><span class="chip tk">IEF</span><span class="chip tk">BND</span><span class="chip tk">VTI</span></div>
+    <p>워시 위원의 반복 표현은 연준 내부의 금리 정책 방향성에 대한 암시로 작용합니다(①원인). &#x27;인플레이션은 선택&#x27;이라는 표현은 더 공격적인 금리 인상 가능성을, &#x27;첫 원칙&#x27;으로의 복귀는 기존 정책 틀의 재검토를 시사하며, 이는 시장의 금리 전망을 수정하도록 압박합니다(②경로). 이러한 정책 신호의 불확실성은 채권과 주식 시장의 변동성을 높이고, 미국 달러 강세를 유도하여 신흥국 자산과 원화에 악영향을 미칩니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>watchers</b> — 관찰자, 주시하는 사람들</li><li><b>first principles</b> — 기본 원칙, 근본적인 원리</li><li><b>signal</b> — 신호를 보내다, 암시하다</li><li><b>homed in on</b> — 집중하다, 초점을 맞추다</li></ul>
+    <ul><li><b>Fed</b> — 미국 연방준비제도</li><li><b>watchers</b> — 관찰자, 추적하는 사람</li><li><b>inflation</b> — 인플레이션, 물가상승</li><li><b>phrases</b> — 표현, 구절</li><li><b>first principles</b> — 기본으로 돌아가기, 근본적 원칙</li></ul>
   </div>
 </article>
-<article>
+<article id="a4">
   <span class="num">NO.04</span><span class="src">CNBC Markets</span>
   <h2><a href="https://www.cnbc.com/2026/07/22/trump-generic-drugs-tariffs-medicine-trade-.html" target="_blank" rel="noopener">Trump plans generic drug tariffs from 2028 with two-year delay testing U.S. onshoring push</a></h2>
-  <p class="eng">The Trump administration plans to impose tariffs on generic drugs starting in 2028, with a two-year delay intended to allow U.S. companies time to develop domestic drug production capacity. However, displacing established suppliers like India, which dominates low-cost generic drug manufacturing, will prove difficult and could face significant industry resistance.</p>
-  <div class="kor"><span class="label">한국어 해석</span>트럼프 행정부는 2028년부터 제네릭 의약품에 대한 관세를 부과할 계획이며, 2년의 유예 기간은 미국 기업들이 국내 의약품 생산 능력을 개발할 시간을 주기 위한 것입니다. 그러나 저가 제네릭 의약품 제조를 지배하는 인도 같은 기존 공급업체를 대체하는 것은 어려울 것이며 상당한 산업 저항에 직면할 수 있습니다.</div>
+  <p class="eng" id="eng-4">Trump plans to impose tariffs on generic drugs starting in 2028, with a two-year delay to allow testing of U.S. drug production onshoring. The policy aims to reshape low-cost drug manufacturing, though displacing established suppliers like India presents significant challenges.</p>
+  <button class="listen" onclick="speak(this,'eng-4')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>트럼프 정부가 2028년부터 제네릭 의약품에 관세를 부과할 계획이며, 미국 국내 의약품 생산 온쇼어링 테스트를 위해 2년의 유예 기간을 제공합니다. 이 정책은 저가 의약품 제조를 재편하려는 목표를 가지지만, 인도 같은 기존 공급자들을 대체하는 것은 상당한 어려움을 안고 있습니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">제약/바이오</span><span class="chip">의료용품</span><span class="chip">화학/원료약품</span><span class="chip tk">JNJ</span><span class="chip tk">PFE</span><span class="chip tk">ABBV</span><span class="chip kr">삼성바이오로직스</span><span class="chip kr">셀트리온</span><span class="chip kr">한미약품</span></div>
-    <p>①원인: 트럼프 행정부의 제약 산업 국내 회귀 정책으로 2028년부터 제네릭 의약품 관세 부과 예정 ②경로: 관세 부과로 인도산 저가 제네릭 의약품의 가격 경쟁력이 약화되고, 미국 내 의약품 제조 수익성 개선. 다만 단기간(2년) 내 국내 생산 능력 구축은 어려워 의약품 가격 상승 압력 증가 ③결과: 한국의 제약사 중 미국 시장 진출 기업들(한미약품 등)은 단기적으로 경쟁 약화로 호재이나, 의약품 원료약품 수입에 의존하는 기업들은 원가 상승 악재. 미국 제약사들은 시간을 두고 국내 생산 능력 구축 기회 획득</p>
+    <div class="chips"><span class="chip">제약·의료</span><span class="chip">화학산업</span><span class="chip">무역</span><span class="chip tk">JNJ</span><span class="chip tk">PFE</span><span class="chip tk">ABBV</span><span class="chip kr">셀트리온</span><span class="chip kr">삼성바이오로직스</span><span class="chip kr">한미약품</span></div>
+    <p>미국의 제네릭 의약품 관세 정책은 글로벌 의약품 공급망 재편을 강제합니다(①원인). 2028년 관세 도입 예고는 인도, 중국 등 저가 제네릭 공급국의 경쟁력을 약화시키고, 미국 제약사들의 국내 생산 설비 투자를 유도하는 동시에 미국 제약사의 원재료 조달 비용을 상승시킵니다(②경로). 단기적으로는 한국의 제네릭 의약품 수출사들(한미약품, CJ헬스케어 등)이 수익성 악화를 경험하지만, 중장기적으로는 바이오 신약 중심의 한국 제약업체들(셀트리온, 삼성바이오로직스)은 고부가가치 시장에서 기회를 얻을 수 있습니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>generic drug</b> — 제네릭(일반) 의약품</li><li><b>onshoring</b> — 국내 회귀, 자국 생산 이전</li><li><b>displace</b> — 대체하다, 밀어내다</li><li><b>won&#x27;t be easy</b> — 쉽지 않을 것이다</li></ul>
+    <ul><li><b>generic drug</b> — 제네릭 의약품, 일반의약품</li><li><b>tariff</b> — 관세</li><li><b>onshoring</b> — 국내 생산 이전</li><li><b>suppliers</b> — 공급자, 납품업체</li><li><b>delay</b> — 지연, 유예</li><li><b>won&#x27;t be easy</b> — 쉽지 않을 것이다</li></ul>
   </div>
 </article>
-<article>
+<article id="a5">
   <span class="num">NO.05</span><span class="src">CNBC Markets</span>
   <h2><a href="https://www.cnbc.com/2026/07/17/import-prices-post-surprise-gain-as-costs-of-goods-from-china-hit-highest-since-2008.html" target="_blank" rel="noopener">Import prices post surprise gain as costs of goods from China hit highest since 2008</a></h2>
-  <p class="eng">Import prices unexpectedly rose by 0.3% month-over-month as increases in prices of goods from China reached their highest level since 2008, offsetting declines in energy costs. The surge in import prices signals that tariff pressures and supply chain disruptions continue to push inflation concerns despite recent energy price drops.</p>
-  <div class="kor"><span class="label">한국어 해석</span>수입 물가가 예상외로 월간 0.3% 상승했으며, 중국산 제품 가격이 2008년 이후 최고 수준에 도달하면서 에너지 비용 하락분을 상쇄했습니다. 수입 물가의 급등은 관세 압력과 공급망 교란이 최근의 에너지 가격 하락에도 불구하고 인플레이션 우려를 계속 가하고 있음을 시사합니다.</div>
+  <p class="eng" id="eng-5">Import prices rose 0.3% for the month, with a decline in energy prices offset by increases in other goods. The cost of goods imported from China reached its highest level since 2008.</p>
+  <button class="listen" onclick="speak(this,'eng-5')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>수입물가가 월별 기준으로 0.3% 상승했으며, 에너지 가격 하락이 다른 상품의 가격 인상으로 상쇄되었습니다. 중국산 수입 상품의 비용은 2008년 이후 최고 수준에 도달했습니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">소비재</span><span class="chip">소매업</span><span class="chip">제조업</span><span class="chip tk">XRT</span><span class="chip tk">IYM</span><span class="chip tk">SPY</span><span class="chip kr">삼성전자</span><span class="chip kr">LG전자</span><span class="chip kr">현대자동차</span></div>
-    <p>①원인: 중국산 수입품 가격이 2008년 이후 최고 수준으로 상승하여 전체 수입 물가를 견인 ②경로: 트럼프 관세 정책 예상과 중국산 제품의 공급망 재편으로 단기 가격 상승. 이는 최종 소비자 물가 상승으로 이어질 가능성이 높으며, 미국 중앙은행의 추가 금리 인상 가능성 증가 ③결과: 중국산 부품/완성품에 의존하는 한국 제조업(전자·자동차)의 원가 상승으로 수익성 악화 우려. 동시에 미국 금리 인상 가능성 상승으로 한국 수출 경쟁력 약화</p>
+    <div class="chips"><span class="chip">소매·유통</span><span class="chip">수입 제조업</span><span class="chip">물류·운송</span><span class="chip tk">WMT</span><span class="chip tk">XRT</span><span class="chip tk">IYG</span></div>
+    <p>미국의 수입물가 상승은 트럼프 관세와 중국산 제품 비용 증가의 누적 효과를 반영합니다(①원인). 중국산 수입 비용이 16년 만에 최고치를 기록한 것은 관세 부담과 공급망 재편으로 인한 운송비 상승을 의미하며, 이는 소매업체의 원가 부담 증가로 전달됩니다(②경로). 결과적으로 미국 소비자들의 인플레이션 심화 우려가 커지고, 소매 마진 압박으로 유통업체들의 수익성이 악화될 가능성이 높아집니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>surprise gain</b> — 예상 외의 상승</li><li><b>offset</b> — 상쇄하다, 상쇄되다</li><li><b>pressurize</b> — 압력을 가하다</li><li><b>more than offset</b> — 완전히 상쇄하다, 그 이상으로 상쇄하다</li></ul>
+    <ul><li><b>import prices</b> — 수입물가</li><li><b>surprise gain</b> — 예상 외의 상승</li><li><b>offset</b> — 상쇄하다, 보상하다</li><li><b>goods</b> — 상품, 물품</li><li><b>more than offset</b> — 완전히 상쇄하다, 능가하다</li></ul>
   </div>
 </article>
-<article>
+<article id="a6">
   <span class="num">NO.06</span><span class="src">CNBC Top News</span>
   <h2><a href="https://www.cnbc.com/2026/07/27/oil-price-wti-brent-slide-as-iran-reportedly-may-halt-attacks.html" target="_blank" rel="noopener">Oil slides 5% as Iran reportedly signals halt to attacks if U.S. pause holds</a></h2>
-  <p class="eng">Oil prices declined by 5% following reports that Iran signaled a willingness to halt its attacks on targets in the region, provided the United States maintains its current pause in hostilities. The diplomatic development reduced immediate concerns about Middle Eastern escalation and its potential impact on global crude supplies.</p>
-  <div class="kor"><span class="label">한국어 해석</span>이란이 미국이 현재의 적대 행위 중단을 유지한다면 지역 내 공격을 중단하겠다는 의사를 보임에 따라 유가가 5% 하락했습니다. 이러한 외교적 진전은 중동 지역 갈등 확대와 이것이 글로벌 원유 공급에 미칠 잠재적 영향에 대한 즉각적인 우려를 감소시켰습니다.</div>
+  <p class="eng" id="eng-6">Oil prices dropped 5% after Iran reportedly signaled it would suspend attacks if the U.S. pause in hostilities continues. The report suggested a potential de-escalation in Middle East tensions.</p>
+  <button class="listen" onclick="speak(this,'eng-6')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>유가가 5% 하락했으며, 이는 이란이 미국이 적대 행위 일시 중지를 유지할 경우 공격을 중단하겠다는 신호를 보낸 후의 움직임입니다. 이 보도는 중동 긴장이 완화될 가능성을 시사합니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">에너지</span><span class="chip">석유화학</span><span class="chip">항공운송</span><span class="chip tk">XLE</span><span class="chip tk">CL=F</span><span class="chip tk">USO</span><span class="chip kr">S-Oil</span><span class="chip kr">SK에너지</span><span class="chip kr">대한항공</span></div>
-    <p>①원인: 이란의 공격 중단 신호로 중동 지역 긴장 완화 기대 ②경로: 유가가 배럴당 5% 하락하면서 원유 수입비 부담 감소. 이는 수입 인플레이션 압력 완화로 이어져 중앙은행의 금리 인상 압력 감소 가능성 ③결과: 한국의 에너지 수입 비용 감소로 단기 호재이며, 석유화학 원가 하락으로 수익성 개선 기대. 다만 지정학적 위험 해소가 완전하지 않아 변동성 높음</p>
+    <div class="chips"><span class="chip">에너지</span><span class="chip">운송·항공</span><span class="chip">화학·정유</span><span class="chip tk">USO</span><span class="chip tk">XLE</span><span class="chip tk">CVX</span><span class="chip kr">SK이노베이션</span><span class="chip kr">S-Oil</span><span class="chip kr">GS에너지</span></div>
+    <p>이란의 공격 중단 신호는 중동 지정학적 리스크의 일시적 완화를 의미합니다(①원인). 이러한 신호는 유가 상승 압력을 제거하고, 글로벌 해운로의 안전성 우려를 감소시킴으로써 에너지 및 운송 비용 하락을 초래합니다(②경로). 결과적으로 한국의 정유·석유화학사들의 원재료 비용이 낮아져 마진 개선이 기대되며, 항공·해운 부문의 수익성도 개선될 수 있습니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>signals</b> — 신호를 보내다, 의사를 표현하다</li><li><b>halt</b> — 중단하다</li><li><b>escalation</b> — 확대, 심화</li><li><b>as long as</b> — ~하는 한, ~인 경우</li></ul>
+    <ul><li><b>slides</b> — 미끄러지다, 하락하다</li><li><b>halt</b> — 중단, 일시 중지</li><li><b>pause</b> — 휴지, 일시 중지</li><li><b>de-escalation</b> — 긴장 완화</li><li><b>as long as</b> — ~하는 한, ~이면</li></ul>
   </div>
 </article>
-<article>
+<article id="a7">
   <span class="num">NO.07</span><span class="src">CNBC Top News</span>
   <h2><a href="https://www.cnbc.com/2026/07/26/ukraine-strikes-iranian-vessels-tehran-accuses-kyiv-of-hostile-act.html" target="_blank" rel="noopener">Ukraine strikes Iranian vessels in Caspian Sea, Tehran accuses Kyiv of &#x27;hostile and criminal act&#x27;</a></h2>
-  <p class="eng">Ukraine has struck Iranian vessels in the Caspian Sea, and Iran has accused Kyiv of committing a &quot;hostile and criminal act.&quot; These latest attacks, combined with Saudi military operations against Iran-backed Houthi forces in Yemen, represent a significant widening of the Middle Eastern conflict beyond its traditional geographic and political boundaries.</p>
-  <div class="kor"><span class="label">한국어 해석</span>우크라이나가 카스피해의 이란 선박을 공격했으며, 이란은 키이우를 &quot;적대적이고 범죄적 행위&quot;로 고발했습니다. 이들 최신 공격과 사우디아라비아의 이란 지원 후티 세력에 대한 군사 작전이 결합되면서 중동 갈등이 기존의 지리적, 정치적 경계를 훨씬 넘어 확대되고 있음을 보여줍니다.</div>
+  <p class="eng" id="eng-7">Ukraine conducted strikes against Iranian vessels in the Caspian Sea, prompting Tehran to accuse Kyiv of a &quot;hostile and criminal act.&quot; Combined with Saudi military strikes on Iran-backed Houthi targets in Yemen, these actions represent an expansion of the Middle East conflict.</p>
+  <button class="listen" onclick="speak(this,'eng-7')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>우크라이나가 카스피해의 이란 선박을 공격했으며, 이에 테헤란은 키예프를 &#x27;적대적이고 범죄적 행위&#x27;로 비난했습니다. 사우디의 예멘 친이란 후티 조직 공격과 함께, 이러한 조치들은 중동 분쟁의 확대를 의미합니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">에너지</span><span class="chip">운송/물류</span><span class="chip">방위산업</span><span class="chip tk">XLE</span><span class="chip tk">IYM</span><span class="chip tk">LMT</span><span class="chip kr">S-Oil</span><span class="chip kr">현대중공업</span><span class="chip kr">한화에어로스페이스</span></div>
-    <p>①원인: 우크라이나의 이란 공격과 사우디의 후티 세력 공격으로 중동 갈등이 다국적·다층적으로 확대 ②경로: 지정학적 위험 증가로 유가 변동성 확대 및 유가 상승 압력 증가. 페르시아만 해상 운송로 위험성 상승으로 해운비 상승 가능성. 또한 지역 안보 위협으로 방위산업 관련 수요 증가 ③결과: 한국 에너지 수입업체의 원유 수입비 상승 악재, 한진·현대상선 등 해운사의 운임 수익 개선 가능성. 단기적으로 지정학적 프리미엄으로 유가 상승, 해운비 상승 우려</p>
+    <div class="chips"><span class="chip">에너지</span><span class="chip">해운·물류</span><span class="chip">방위산업</span><span class="chip tk">USO</span><span class="chip tk">XLE</span><span class="chip tk">ITA</span><span class="chip kr">한진해운</span><span class="chip kr">현대중공업</span></div>
+    <p>우크라이나와 사우디의 공격은 중동 분쟁의 지역적 확산을 의미하며, 호르무즈 해협과 카스피해 해상 안전 위협을 증가시킵니다(①원인). 이는 유가 상승 압력과 해운료 인상, 보험료 상승으로 이어져 글로벌 에너지·물류 비용을 상승시킵니다(②경로). 결과적으로 한국의 에너지 수입비용과 해운사의 운영 비용이 증가하고, 원유 수입 비용 상승은 국내 인플레이션 우려를 높이며, 방위산업 관련 수요는 증가할 가능성이 있습니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>strikes</b> — 공격, 타격</li><li><b>accuses</b> — 고발하다, 비난하다</li><li><b>widening</b> — 확대, 확장</li><li><b>hostile and criminal act</b> — 적대적이고 범죄적 행위</li></ul>
+    <ul><li><b>strikes</b> — 공격, 타격</li><li><b>vessels</b> — 선박, 배</li><li><b>accuses</b> — 고발하다, 비난하다</li><li><b>widening</b> — 확대, 확장</li><li><b>hostile and criminal act</b> — 적대적이고 범죄적인 행위</li></ul>
   </div>
 </article>
-<article>
+<article id="a8">
   <span class="num">NO.08</span><span class="src">CNBC Top News</span>
   <h2><a href="https://www.cnbc.com/2026/07/26/how-can-ai-wealth-be-shared-with-all-americans.html" target="_blank" rel="noopener">How AI wealth could be distributed to all Americans</a></h2>
-  <p class="eng">While artificial intelligence wealth is already heavily concentrated among a handful of dominant technology companies, policymakers and economists are exploring various ideas—some radical—about how to distribute AI-generated wealth more broadly to all Americans. These proposals range from traditional taxation approaches to more experimental wealth-sharing mechanisms designed to address growing economic inequality.</p>
-  <div class="kor"><span class="label">한국어 해석</span>인공지능으로 인한 부가 이미 소수의 지배적 기술 기업들에 집중되어 있지만, 정책 입안자들과 경제학자들은 AI가 창출한 부를 모든 미국인에게 더 광범위하게 분배하는 방법에 대해 다양한 아이디어를 탐구하고 있습니다. 이러한 제안들은 전통적인 과세 접근 방식부터 증가하는 경제 불평등에 대처하기 위해 고안된 더 실험적인 부 공유 메커니즘까지 다양합니다.</div>
+  <p class="eng" id="eng-8">AI wealth is currently concentrated among a small number of powerful companies, but policymakers and economists are exploring various new ideas, including some radical proposals, on how to distribute AI-generated gains more broadly to all Americans.</p>
+  <button class="listen" onclick="speak(this,'eng-8')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>AI 부의 집중이 소수의 강력한 기업들에 편중되어 있지만, 정책입안자들과 경제학자들은 AI로 인한 이익을 모든 미국인에게 더 널리 분배하는 방법에 대해 다양한 새로운 아이디어, 심지어 일부 급진적인 제안까지 모색하고 있습니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">기술/소프트웨어</span><span class="chip">금융</span><span class="chip">공공정책</span><span class="chip tk">MSFT</span><span class="chip tk">NVDA</span><span class="chip tk">GOOGL</span></div>
-    <p>①원인: AI 부가 소수 대형 기술기업에 집중되면서 경제 불평등 심화 우려 ②경로: 정부의 AI 부 재분배 정책(세금 강화, 부 공유 메커니즘 등) 추진 가능성 증가. 이는 기술기업의 수익성 악화 압력으로 작용 가능 ③결과: MSFT, NVDA 등 대형 AI 기업들의 규제 리스크 상승과 이에 따른 배당 정책 강화 압력 증가. 다만 구체적 정책 결정이 아직 초기 단계이므로 현재로서는 선순환적 부의 재분배 논의로 기술주 부담 완화 여지도 있음</p>
+    <div class="chips"><span class="chip">기술·AI</span><span class="chip">금융·정책</span><span class="chip">사회정책</span><span class="chip tk">NVDA</span><span class="chip tk">MSFT</span><span class="chip tk">GOOGL</span><span class="chip kr">카카오</span><span class="chip kr">네이버</span><span class="chip kr">삼성전자</span></div>
+    <p>AI 부의 과도한 집중에 대한 정책적 논의는 향후 규제 강화 또는 부의 재분배 정책으로 이어질 가능성이 있습니다(①원인). 정부가 AI 관련 기업의 수익에 대한 과세 강화나 보편적 기본소득 도입 등을 추진할 경우, 빅테크 기업들의 순이익이 감소하고 기업가치 평가가 조정될 수 있습니다(②경로). 결과적으로 NVIDIA, 마이크로소프트, 구글 등 AI 핵심 기업의 수익성 전망이 악화될 수 있으며, 한국의 AI·반도체·IT 관련 기업들도 글로벌 정책 기조 변화의 영향을 받게 됩니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>concentrated</b> — 집중된</li><li><b>distribute</b> — 분배하다</li><li><b>radical</b> — 급진적인</li><li><b>handful of</b> — 소수의, 한줌의</li></ul>
+    <ul><li><b>wealth</b> — 부, 자산</li><li><b>concentrated</b> — 집중된, 편중된</li><li><b>distribute</b> — 분배하다, 나누다</li><li><b>radical</b> — 급진적인, 혁신적인</li><li><b>spread the wealth</b> — 부를 나누다, 이익을 공유하다</li></ul>
   </div>
 </article>
-<article>
+<article id="a9">
   <span class="num">NO.09</span><span class="src">CNBC Top News</span>
   <h2><a href="https://www.cnbc.com/2026/07/26/jim-cramer-heres-the-tech-stock-to-buy-in-a-market-losing-patience-with-tech.html" target="_blank" rel="noopener">Here&#x27;s the tech stock to buy in a market losing patience with tech</a></h2>
-  <p class="eng">As the broader technology sector faces investor skepticism, certain tech stocks are emerging as attractive investments based on their returns rather than their spending patterns. The shift in investor focus highlights a new preference for tech companies demonstrating profitable growth and strong cash returns over those with heavy capital expenditures and speculative business models.</p>
-  <div class="kor"><span class="label">한국어 해석</span>기술 부문 전반이 투자자들의 회의론에 직면하면서, 지출 패턴보다는 수익성 기반의 특정 기술주들이 매력적인 투자처로 부상하고 있습니다. 투자자 초점의 변화는 과도한 자본 지출과 투기적 사업 모델을 가진 기업들보다 수익성 있는 성장과 강한 현금 환원을 보여주는 기술 기업에 대한 새로운 선호도를 강조합니다.</div>
+  <p class="eng" id="eng-9">As the market loses patience with technology stocks in general, investors are being advised to focus on buying tech stocks that actually generate strong returns. The key consideration is not how much companies spend, but rather what returns they achieve on that spending.</p>
+  <button class="listen" onclick="speak(this,'eng-9')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>시장이 기술주 전반에 대한 인내심을 잃어가고 있는 가운데, 투자자들은 실제로 강한 수익을 창출하는 기술주 매수에 집중할 것을 조언받고 있습니다. 핵심은 기업들의 지출 규모가 아니라 그 지출로부터 얻는 수익률입니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">기술/소프트웨어</span><span class="chip">클라우드 컴퓨팅</span><span class="chip">반도체</span><span class="chip tk">MSFT</span><span class="chip tk">ORCL</span><span class="chip tk">CRM</span><span class="chip kr">삼성전자</span><span class="chip kr">네이버</span><span class="chip kr">카카오</span></div>
-    <p>①원인: 기술주 투자자들이 고액 자본지출 기업보다 수익성 있는 기업에 대한 선호도 증가 ②경로: 이는 고성장/저수익 기술기업에서 안정적 현금흐름 창출 기업으로의 포트폴리오 리밸런싱. 이러한 경향은 이익 인정 매도 압력에서 벗어난 수익성 높은 기술기업 (클라우드, 소프트웨어 등)에 상대적 호재 제공 ③결과: 한국의 기술주 중에서도 삼성전자 같은 이익 창출 기업은 선호 증가, 고성장·저수익 모델의 스타트업 관련 기업들은 투자 심화 가능성. 글로벌 기술주 약세 국면에서도 수익성 있는 기업에는 &#x27;쏠림&#x27; 현상 심화</p>
+    <div class="chips"><span class="chip">기술·정보통신</span><span class="chip">소프트웨어</span><span class="chip">클라우드</span><span class="chip tk">NVDA</span><span class="chip tk">MSFT</span><span class="chip tk">META</span><span class="chip kr">카카오</span><span class="chip kr">네이버</span><span class="chip kr">삼성전자</span></div>
+    <p>기술주 시장의 선별적 약세는 투자자들이 성장성보다 실적 창출력을 중시하기 시작했음을 의미합니다(①원인). 이는 고비용·저수익 기업들로부터의 자금 이탈과 강한 현금 흐름을 보유한 기업으로의 집중을 초래하며, 시가총액 대비 실제 이익이 높은 기업들에 프리미엄이 부여됩니다(②경로). 결과적으로 AI 투자로 많은 비용을 소모하면서도 수익화 시점이 불확실한 기업들의 주가는 조정 압박을 받는 반면, 효율적인 R&amp;D와 실제 이익을 창출하는 기업들이 상대적 강세를 보일 것으로 예상됩니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>skepticism</b> — 회의론, 의심</li><li><b>emerging</b> — 부상하는, 나타나는</li><li><b>speculative</b> — 투기적인, 추측에 기반한</li><li><b>It&#x27;s not the spend, it&#x27;s the return</b> — 지출이 중요한 게 아니라 수익이 중요하다</li></ul>
+    <ul><li><b>patience</b> — 인내심, 참을성</li><li><b>spend</b> — 지출하다, 사용하다</li><li><b>return</b> — 수익, 반환</li><li><b>losing patience</b> — 인내심을 잃다</li><li><b>It&#x27;s not the spend, it&#x27;s the return.</b> — 지출이 아니라 수익률이 중요하다</li></ul>
   </div>
 </article>
-<article>
+<article id="a10">
   <span class="num">NO.10</span><span class="src">CNBC Top News</span>
   <h2><a href="https://www.cnbc.com/2026/07/26/what-more-expensive-corporate-debt-could-mean-for-the-ai-buildout.html" target="_blank" rel="noopener">What more expensive corporate debt could mean for the AI buildout</a></h2>
-  <p class="eng">Widening credit spreads are expected to intensify pressure on heavily indebted segments of the technology sector as borrowing costs rise. This credit market tightening will disproportionately affect tech companies with high debt levels and marginal profitability, potentially constraining their ability to fund ongoing AI infrastructure buildouts and growth initiatives.</p>
-  <div class="kor"><span class="label">한국어 해석</span>신용 스프레드의 확대로 인한 차입 비용 상승이 기술 부문 내 고부채 부분에 대한 압력을 강화할 것으로 예상됩니다. 이러한 신용 시장 긴축은 높은 부채 수준과 한계 수익성을 가진 기술 기업들에 불균형적으로 영향을 미칠 것이며, 지속적인 AI 인프라 구축 및 성장 계획 자금 조달 능력을 제약할 가능성이 있습니다.</div>
+  <p class="eng" id="eng-10">Credit spreads are expected to widen, which will create pressure on heavily indebted sectors of the tech industry. As borrowing costs increase, companies with high debt levels may face significant challenges in maintaining their AI investment programs.</p>
+  <button class="listen" onclick="speak(this,'eng-10')">🔊 영어 듣기</button>
+  <div class="kor"><span class="label">한국어 해석</span>신용 스프레드가 확대될 것으로 예상되며, 이는 기술산업의 고부채 부문에 압력을 가할 것입니다. 차입 비용이 상승함에 따라 높은 부채 수준을 가진 기업들은 AI 투자 프로그램을 유지하는 데 상당한 어려움을 직면할 수 있습니다.</div>
   <div class="impact">
     <span class="label">파급력 분석</span>
-    <div class="chips"><span class="chip">기술/소프트웨어</span><span class="chip">클라우드 컴퓨팅</span><span class="chip">AI/데이터센터</span><span class="chip tk">TSLA</span><span class="chip tk">NVDA</span><span class="chip tk">META</span><span class="chip kr">네이버</span><span class="chip kr">카카오</span><span class="chip kr">SK텔레콤</span></div>
-    <p>①원인: 신용 스프레드 확대로 미국 채권 시장의 차입 금리 상승, 특히 고위험 기업의 차입 비용 급증 ②경로: AI 인프라 투자(데이터센터, GPU 등)에 막대한 자본이 필요한 기술기업들의 차입 비용이 급증. 이는 이자 비용 부담 증가로 순이익 악화 초래. 수익성이 낮으면서 고부채인 기업들이 신규 투자 연기 또는 축소 ③결과: 높은 부채 비율의 기술기업(메타, 테슬라 등)은 자본조달 비용 상승으로 수익성 악화 우려. 한국의 고부채 기술기업(네이버, 카카오)도 차입 비용 상승 압력에 직면 가능. 다만 여유자금 풍부한 기업들은 M&amp;A 기회 포착 가능</p>
+    <div class="chips"><span class="chip">기술·정보통신</span><span class="chip">반도체</span><span class="chip">클라우드·데이터센터</span><span class="chip tk">NVDA</span><span class="chip tk">AMD</span><span class="chip tk">META</span><span class="chip kr">삼성전자</span><span class="chip kr">SK하이닉스</span><span class="chip kr">네이버</span></div>
+    <p>신용 스프레드 확대는 금리 인상 우려나 경기 침체 신호를 반영하며, 차입 비용 상승을 초래합니다(①원인). 기술 기업들, 특히 대규모 AI 인프라 투자를 추진 중인 기업들(메타, 마이크로소프트, NVIDIA 등)의 차입금 상환 비용이 급증하고, 이는 영업 현금흐름의 압박으로 이어져 AI 투자 규모 조정을 강제합니다(②경로). 결과적으로 고부채 기술기업들의 투자 계획이 지연되고, 반도체·데이터센터·클라우드 등 AI 관련 수주 감소가 발생하며, 한국의 반도체(삼성, SK하이닉스) 및 IT 기업들도 주요 고객사의 투자 둔화로 인한 수요 급락에 직면하게 됩니다(③결과).</p>
   </div>
   <div class="note">
     <span class="label">Vocab &amp; Idioms</span>
-    <ul><li><b>widening credit spreads</b> — 신용 스프레드 확대 (차입금 금리 상승)</li><li><b>intensify</b> — 강화하다, 심화시키다</li><li><b>constrain</b> — 제약하다, 제한하다</li><li><b>disproportionately affect</b> — 불균형적으로 영향을 미치다</li></ul>
+    <ul><li><b>corporate debt</b> — 기업채</li><li><b>spreads</b> — 스프레드, 격차</li><li><b>widen</b> — 확대하다, 넓어지다</li><li><b>pressurize</b> — 압박하다, 압력을 가하다</li><li><b>heavily indebted</b> — 고부채의</li><li><b>wider credit spreads</b> — 신용 스프레드 확대</li></ul>
   </div>
 </article>
 </main>
 <footer>본 페이지의 종목 분석은 AI가 생성한 참고 자료이며 투자 권유가 아닙니다.<br>
 투자 판단과 책임은 본인에게 있습니다.</footer>
+<script>
+let curBtn = null;
+function resetBtn() {
+  if (curBtn) { curBtn.classList.remove('playing'); curBtn.textContent = '🔊 영어 듣기'; curBtn = null; }
+}
+function speak(btn, id) {
+  const synth = window.speechSynthesis;
+  if (synth.speaking) {
+    const same = (curBtn === btn);
+    synth.cancel(); resetBtn();
+    if (same) return; // 같은 버튼 다시 누르면 정지
+  }
+  const u = new SpeechSynthesisUtterance(document.getElementById(id).textContent);
+  u.lang = 'en-US';
+  u.rate = 0.92; // 학습용으로 약간 천천히
+  const voice = synth.getVoices().find(v => v.lang.startsWith('en-US'));
+  if (voice) u.voice = voice;
+  u.onend = resetBtn;
+  u.onerror = resetBtn;
+  synth.speak(u);
+  curBtn = btn; btn.classList.add('playing'); btn.textContent = '⏸ 정지';
+}
+// 일부 브라우저는 목소리 목록을 늦게 불러옴
+window.speechSynthesis && window.speechSynthesis.getVoices();
+</script>
 </body>
 </html>
